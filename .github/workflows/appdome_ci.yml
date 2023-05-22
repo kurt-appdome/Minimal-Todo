@@ -1,0 +1,51 @@
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Appdome build-2secure
+        # You may pin to the exact commit or the version.
+        # uses: Appdome/github_build-2secure@fbc9937e9970f727055e9c46554bcc966d4b24ad
+        uses: Appdome/github_build-2secure@1.0
+        with:
+          # Appdome API key
+          APPDOME_API_TOKEN: # default is None
+          # APK file
+          APP_FILE: # default is None
+          # Appdome FusionSetId iOS/Android
+          FUSION_SET_ID: # default is None
+          # iOS/Android Signin option
+          SIGN_OPTIONS: 
+          # Keystore sign file
+          KEYSTORE_FILE: # optional, default is None
+          # iOS sign file
+          MOBILE_PROVISION_PROFILE_FILE: # optional, default is None
+          # iOS sign file
+          ENTITLEMENTS_FILE: # optional, default is None
+          # Keystore password sign file
+          KEYSTORE_PASSWORD: # optional, default is None
+          # keystore alias
+          KEYSTORE_ALIAS: # optional, default is None
+          # keystore key password
+          KEYSTORE_KEY_PASSWORD: # optional, default is None
+          # signing sha1 fingerprint
+          SIGN_FINGERPRINT: # optional, default is None
+          # Google Play App Signing program
+          GOOGLE-PLAY-SIGNING: # optional, default is false
+          # your team-id
+          TEAM-ID: # optional, default is None
